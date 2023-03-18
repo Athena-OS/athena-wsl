@@ -7,6 +7,7 @@ on:
 
 env:
   WSL_IMG: wsl
+  ROOTFS: install
 
 jobs:
   # Push image to GitHub Packages.
@@ -27,14 +28,16 @@ jobs:
 
       - name: Build WSL
         run: |
-          docker build --no-cache . --file ./Dockerfile --tag docker.io/athenaos/$WSL_IMG
+          docker build --no-cache . --file ./Dockerfile --tag athenaos/$WSL_IMG
 
-      - name: Log into registry
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
-      - name: Push image
+      - name: Extract RootFS
         run: |
-          docker push docker.io/athenaos/$WSL_IMG
+          docker create --name athena-wsl athenaos/$WSL_IMG
+          docker export -o $ROOTFS.tar athena-wsl
+          gzip $ROOTFS.tar
+          docker rm -f athena-wsl
+      - name: Upload RootFS
+        uses: actions/upload-artifact@v3
+        with:
+          name: $ROOTFS.tar.gz
+          path: $ROOTFS.tar.gz

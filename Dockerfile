@@ -127,6 +127,7 @@ RUN systemd-machine-id-setup
 RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 
 # /etc/skel editing
+RUN echo "source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh" >> /etc/skel/.bashrc
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/athena-application-config/dconf-shell.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /etc/skel/.local/share/applications/*
 RUN sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*

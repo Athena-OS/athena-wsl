@@ -1,8 +1,8 @@
 name: WSL RootFS Generator
 
 on:
-  #schedule:
-    #- cron: '22 4 * * 0'
+  schedule:
+    - cron: '22 4 * * 0'
   workflow_dispatch:
 
 env:
@@ -35,8 +35,12 @@ jobs:
           docker export -o install.tar athena-wsl
           gzip install.tar
           docker rm -f athena-wsl
-      - name: Upload RootFS
-        uses: actions/upload-artifact@v3
+          
+      - name: Upload to GDrive
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          name: install.tar.gz
-          path: install.tar.gz
+          credentials: ${{ secrets.GDRIVE_TOKEN }}
+          filename: "install.tar.gz"
+          folderId: ${{ secrets.FOLDER_ID }}
+          name: "install.tar.gz" # optional string
+          overwrite: "true" # optional boolean

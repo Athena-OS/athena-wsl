@@ -7,12 +7,11 @@ on:
 
 env:
   WSL_IMG: wsl
-  ROOTFS: install
 
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  publish:
+  build:
     runs-on: ubuntu-latest
     container:
       image: docker.io/athenaos/base-devel
@@ -33,11 +32,11 @@ jobs:
       - name: Extract RootFS
         run: |
           docker create --name athena-wsl athenaos/$WSL_IMG
-          docker export -o $ROOTFS.tar athena-wsl
-          gzip $ROOTFS.tar
+          docker export -o install.tar athena-wsl
+          gzip install.tar
           docker rm -f athena-wsl
       - name: Upload RootFS
         uses: actions/upload-artifact@v3
         with:
-          name: $ROOTFS.tar.gz
-          path: $ROOTFS.tar.gz
+          name: install.tar.gz
+          path: install.tar.gz

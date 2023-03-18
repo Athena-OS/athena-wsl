@@ -1,0 +1,46 @@
+name: WSL Scheduled Publish
+
+on:
+  schedule:
+    - cron: '22 4 * * 0'
+  workflow_dispatch:
+
+env:
+  WSL_IMG: wsl
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/athenaos/base-devel
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Clear pacman cache
+        run: yes | pacman -Scc
+        
+      - name: Install dependencies
+        run: pacman -Sy --noconfirm --needed docker
+      
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GH_USERNAME }}
+          password: ${{ secrets.GH_TOKEN }}
+      
+      - name: Build WSL
+        run: |
+          docker build --no-cache . --file ./Dockerfile --tag ghcr.io/athenaos/$WSL_IMG
+          docker push ghcr.io/athenaos/$WSL_IMG
+          
+      #- name: Extract RootFS
+        #run: |
+          #docker create --name athena-wsl athenaos/$WSL_IMG
+          #docker export -o install.tar athena-wsl
+          #gzip install.tar
+          #docker rm -f athena-wsl

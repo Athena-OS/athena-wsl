@@ -122,6 +122,8 @@ COPY rootfs/ /
 # See: https://unix.stackexchange.com/a/581353
 RUN systemctl enable fix-colord.service
 
+RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
+RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd
 RUN sed -i 's/echo -e "${G}htb-play${W}.*/echo -e "${R}htb-update${W}:         set the Hack The Box App Token."\necho -e "${G}htb-play${W}:           show or play Hack The Box machines!"/g' /usr/local/bin/athena-motd
 RUN echo "athena-motd" >> /etc/zsh/zprofile
 RUN systemd-machine-id-setup

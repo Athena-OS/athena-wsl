@@ -40,7 +40,7 @@ RUN pacman -Syu --noconfirm --needed adobe-source-han-sans-cn-fonts adobe-source
 ###                    UTILITIES                    ###
 #######################################################
 
-RUN pacman -Syu --noconfirm --needed asciinema bash-completion bashtop bat bc cmatrix cowsay cron downgrade dunst eog espeakup figlet file-roller fortune-mod git gnome-keyring imagemagick jdk-openjdk jq lib32-glibc lolcat lsd nano-syntax-highlighting ncdu neofetch nyancat openbsd-netcat openvpn orca p7zip paru pfetch powershell-bin python-pywhat reflector sl textart tidy tk tmux toilet tree ufw unzip vim vnstat wget which xclip xcp xmlstarlet zoxide
+RUN pacman -Syu --noconfirm --needed asciinema bashtop bat bc cmatrix cowsay cron downgrade dunst eog espeakup figlet file-roller fortune-mod git gnome-keyring imagemagick jdk-openjdk jq lib32-glibc lolcat lsd nano-syntax-highlighting ncdu neofetch nyancat openbsd-netcat openvpn orca p7zip paru pfetch powershell-bin python-pywhat reflector sl textart tidy tk tmux toilet tree ufw unzip vim vnstat wget which xclip xcp xmlstarlet zoxide
 RUN pacman -Syu --noconfirm --needed openssl shellinabox
 
 #######################################################
@@ -125,7 +125,7 @@ RUN systemctl enable fix-colord.service
 RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
 RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd
 RUN sed -i 's/echo -e "${G}htb-play${W}.*/echo -e "${R}htb-update${W}:         set the Hack The Box App Token."\necho -e "${G}htb-play${W}:           show or play Hack The Box machines!"/g' /usr/local/bin/athena-motd
-RUN echo -e "\n# Load systemd user\nif ([ \"$detect_virt\" == \"wsl\" ] && [ \"$DISPLAY\" == \":0\" ]); then\n    rm -rf /run/user/1000/wayland-0*\n    source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh 2> /dev/null\nfi" >> /etc/profile
+RUN echo -e "\n# Load systemd user\nif ([ \"\$(systemd-detect-virt)\" == \"wsl\" ] && [ \"\$DISPLAY\" == \":0\" ]); then\n    rm -rf /run/user/1000/wayland-0*\n    source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh 2> /dev/null\nfi" >> /etc/profile
 RUN echo "athena-motd" >> /etc/zsh/zprofile
 RUN systemd-machine-id-setup
 RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini

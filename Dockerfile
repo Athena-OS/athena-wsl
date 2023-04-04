@@ -125,7 +125,7 @@ RUN systemctl enable fix-colord.service
 RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
 RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd
 RUN sed -i 's/echo -e "${G}htb-play${W}.*/echo -e "${R}htb-update${W}:         set the Hack The Box App Token."\necho -e "${G}htb-play${W}:           show or play Hack The Box machines!"/g' /usr/local/bin/athena-motd
-RUN echo -e "\n# Load systemd user\nif ([[ \"\$(systemd-detect-virt)\" == \"wsl\" ]] && [[ \"\$DISPLAY\" == \":0\" ]]); then\n    rm -rf /run/user/1000/wayland-0*\n    source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh 2> /dev/null\nfi" >> /etc/profile.d/run-once.sh
+RUN echo -e "\n# Load systemd user\nif ([[ \"\$(systemd-detect-virt)\" == \"wsl\" ]] && [[ \"\$DISPLAY\" == \":0\" ]]); then\n    rm -rf /run/user/1000/wayland-0*\nfi" >> /etc/profile.d/run-once.sh
 RUN echo "athena-motd" >> /etc/zsh/zprofile
 RUN systemd-machine-id-setup
 RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini

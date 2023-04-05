@@ -1,0 +1,8 @@
+[Unit]
+Description=Systemd default user fix
+
+[Service]
+ExecStart=/usr/local/bin/systemd-user-fix.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -121,6 +121,7 @@ COPY rootfs/ /
 # Workaround for the colord authentication issue.
 # See: https://unix.stackexchange.com/a/581353
 RUN systemctl enable fix-colord.service
+RUN systemctl enable systemd-user-fix.service
 
 RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
 RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd

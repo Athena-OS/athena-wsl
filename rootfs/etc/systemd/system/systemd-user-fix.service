@@ -1,5 +1,5 @@
 [Unit]
-Description=Systemd default user fix
+Description=Systemd user fix
 
 [Service]
 ExecStart=/usr/local/bin/systemd-user-fix.sh

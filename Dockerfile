@@ -118,7 +118,6 @@ RUN systemctl enable sshd.service NetworkManager.service && \
 # Copy the configuration files and scripts.
 COPY rootfs/ /
 RUN chmod 755 /usr/local/bin/check-xrdp-rfx.sh
-RUN chmod 755 /usr/local/bin/systemd-user-fix.sh
 
 # Workaround for the colord authentication issue.
 # See: https://unix.stackexchange.com/a/581353

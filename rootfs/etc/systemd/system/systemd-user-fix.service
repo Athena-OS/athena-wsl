@@ -1,9 +1,10 @@
 [Unit]
 Description=Systemd user fix
-After=user@1000.service
+After=multi-user.target
 
 [Service]
+Type=simple
 ExecStart=/usr/local/bin/systemd-user-fix.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=last-services.target

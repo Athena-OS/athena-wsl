@@ -129,7 +129,6 @@ RUN systemctl enable fix-colord.service
 RUN mkdir -p /etc/systemd/system/last-services.target.wants
 RUN ln -s /etc/systemd/system/systemd-user-fix.service /etc/systemd/system/last-services.target.wants/systemd-user-fix.service
 RUN systemctl set-default last-services.target
-RUN systemctl isolate last-services.target
 
 RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
 RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd

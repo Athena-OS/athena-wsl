@@ -1,5 +1,0 @@
-[Unit]
-Description=Last Services Target
-Requires=multi-user.target
-After=multi-user.target
-AllowIsolate=yes

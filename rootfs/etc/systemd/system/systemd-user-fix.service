@@ -1,5 +1,6 @@
 [Unit]
 Description=Systemd user fix
+After=systemd-user-sessions.service
 
 [Service]
 ExecStart=/usr/local/bin/systemd-user-fix.sh

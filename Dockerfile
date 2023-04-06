@@ -128,7 +128,6 @@ RUN systemctl enable fix-colord.service
 # See: https://github.com/microsoft/WSL/issues/8842
 RUN mkdir -p /etc/systemd/system/last-services.target.wants
 RUN ln -s /etc/systemd/system/systemd-user-fix.service /etc/systemd/system/last-services.target.wants/systemd-user-fix.service
-RUN systemctl daemon-reload
 RUN systemctl set-default last-services.target
 RUN systemctl isolate last-services.target
 

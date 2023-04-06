@@ -124,12 +124,6 @@ RUN chmod 755 /usr/local/bin/systemd-user-fix.sh
 # See: https://unix.stackexchange.com/a/581353
 RUN systemctl enable fix-colord.service
 
-# Workaround for "bus" and "systemd" missing
-# See: https://github.com/microsoft/WSL/issues/8842
-RUN mkdir -p /etc/systemd/system/last-services.target.wants
-RUN ln -s /etc/systemd/system/systemd-user-fix.service /etc/systemd/system/last-services.target.wants/systemd-user-fix.service
-RUN systemctl set-default last-services.target
-
 RUN sed -i 's/ ${R}OSINT/${R}OSINT/g' /usr/local/bin/athena-motd
 RUN sed -i 's/ ${B}Web Pentester/${B}Web Pentester/g' /usr/local/bin/athena-motd
 RUN sed -i 's/echo -e "${G}htb-play${W}.*/echo -e "${R}htb-update${W}:         set the Hack The Box App Token."\necho -e "${G}htb-play${W}:           show or play Hack The Box machines!"/g' /usr/local/bin/athena-motd

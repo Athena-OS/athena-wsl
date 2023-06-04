@@ -141,7 +141,7 @@ RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/athena-gnome-config/dconf-shell.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /etc/skel/.local/share/applications/*
 RUN sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*
-RUN sed -i "s/source ~\/.bash_aliases/source ~\/.bash_aliases\nsource ~\/.bashrc/g" /etc/skel/.zshrc
+RUN sed -i "s/source ~\/.bash_aliases/source ~\/.bash_aliases\nsource ~\/.bashrc no-repeat-flag/g" /etc/skel/.zshrc
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
 
 # Expose SSH and RDP ports.

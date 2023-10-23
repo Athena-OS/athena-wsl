@@ -1,9 +1,5 @@
 FROM athenaos/base:latest
 
-#######################################################
-###                  BASIC PACKAGES                 ###
-#######################################################
-
 RUN pacman -Syu --noconfirm --needed \
 accountsservice dialog gcc inetutils make man-db man-pages most nano nbd net-tools netctl pv rsync sudo timelineproject-hg vi \
 eza pocl \

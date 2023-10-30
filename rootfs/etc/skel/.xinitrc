@@ -38,7 +38,7 @@ fi
 
 # Workaround for GNOME apps starting slowly
 # See: https://bbs.archlinux.org/viewtopic.php?id=224787
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
-# Start the GNOME session
-exec xfce4-session
+# Start the XFCE session
+startxfce4

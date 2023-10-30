@@ -72,13 +72,13 @@ RUN chmod 755 /usr/local/bin/check-xrdp-rfx.sh
 # See: https://unix.stackexchange.com/a/581353
 RUN systemctl enable fix-colord.service
 
-RUN echo -e "\n# Load systemd user\nif ([[ \"\$(systemd-detect-virt)\" == \"wsl\" ]] && [[ \"\$DISPLAY\" == \":0\" ]]); then\n    rm -rf /run/user/1000/wayland-0*\nfi" >> /etc/profile.d/gnome-config.sh
+RUN echo -e "\n# Load systemd user\nif ([[ \"\$(systemd-detect-virt)\" == \"wsl\" ]] && [[ \"\$DISPLAY\" == \":0\" ]]); then\n    rm -rf /run/user/1000/wayland-0*\nfi" >> /usr/bin/xfce-init
 RUN echo "athena-motd" >> /etc/zsh/zprofile
 RUN systemd-machine-id-setup
 RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 
 # /etc/skel editing
-RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/athena-gnome-config/dconf-shell.ini
+#RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/athena-gnome-config/dconf-shell.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/applications/*
 RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc

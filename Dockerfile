@@ -8,7 +8,7 @@ asciinema bash-completion bashtop bat bc blesh-git cmatrix cowsay cron downgrade
 openssl shellinabox \
 athena-neofetch-config athena-nvim-config athena-powershell-config athena-system-config athena-tmux-config athena-vim-config athena-win-kex athena-zsh htb-toolkit nist-feed \
 armcord-git athena-cyber-hub athena-firefox-config athena-sweetdark-theme athena-theme-tweak athena-vscodium-themes athena-welcome athena-xfce-config bless chatgpt-desktop-bin cyberchef-electron edex-ui-bin gtk-engine-murrine hexedit networkmanager networkmanager-openvpn octopi onionshare reflector torbrowser-launcher \
-check imlib2 tigervnc libxrandr fuse libfdk-aac nasm xfce4-terminal xorg-server xorg-server-devel xorgxrdp xrdp
+check imlib2 tigervnc libxrandr fuse konsole libfdk-aac nasm xorg-server xorg-server-devel xorgxrdp xrdp
 
 RUN systemctl enable xrdp.service
 
@@ -82,6 +82,7 @@ RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/applications/*
 RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
+RUN sed -i "s#^TERMINAL_EXEC="alacritty -e"#TERMINAL_EXEC="konsole -e"#g" /usr/bin/shell-rocket
 
 # Expose SSH and RDP ports.
 EXPOSE 22

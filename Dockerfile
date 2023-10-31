@@ -82,7 +82,7 @@ RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/applications/*
 RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
-RUN sed -i "s#^TERMINAL_EXEC="alacritty -e"#TERMINAL_EXEC="konsole -e"#g" /usr/bin/shell-rocket
+RUN sed -i "s/^TERMINAL_EXEC=\"alacritty -e\"/TERMINAL_EXEC=\"konsole -e\"/g" /usr/bin/shell-rocket
 
 # Expose SSH and RDP ports.
 EXPOSE 22

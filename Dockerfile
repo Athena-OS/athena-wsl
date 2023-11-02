@@ -80,6 +80,7 @@ RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 # /etc/skel editing
 #RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/athena-gnome-config/dconf-shell.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/applications/*
+RUN sed -i 's/alacritty/konsole/g' /usr/share/applications/shell.desktop
 RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
 RUN sed -i "s/^TERMINAL_EXEC=\"alacritty -e\"/TERMINAL_EXEC=\"konsole -e\"/g" /usr/bin/shell-rocket

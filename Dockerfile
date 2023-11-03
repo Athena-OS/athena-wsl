@@ -85,6 +85,9 @@ RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
 RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
 RUN sed -i "s/^TERMINAL_EXEC=\"alacritty -e\"/TERMINAL_EXEC=\"konsole -e\"/g" /usr/bin/shell-rocket
 
+# Fix bug https://github.com/microsoft/wslg/issues/1132
+RUN sed -i "s/you.../you.............../g" /usr/share/applications/kali-fern-wifi-cracker.desktop /usr/share/applications/kali-hb-honeypot.desktop /usr/share/applications/kali-spike-generic-chunked.desktop /usr/share/applications/kali-mimikatz.desktop /usr/share/applications/kali-osrframework.desktop
+
 # Expose SSH and RDP ports.
 EXPOSE 22
 EXPOSE 3389

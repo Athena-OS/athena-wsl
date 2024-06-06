@@ -23,7 +23,7 @@ Clone this repository, edit `Dockerfile` and then run `docker build` as usual:
 ```
 git clone https://github.com/Athena-OS/athena-wsl.git
 cd athena-wsl
-docker buildx build --tag 'athena-wsl:latest' .
+docker buildx build --tag 'athenaos/wsl:latest' .
 ```
 
 ## Push to Docker registry

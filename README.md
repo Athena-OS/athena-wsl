@@ -15,3 +15,23 @@ Create `.tar.gz` archive:
 ```
 gzip .\install.tar
 ```
+
+## Customizing and building the image
+
+Clone this repository, edit `Dockerfile` and then run `docker build` as usual:
+
+```
+git clone https://github.com/Athena-OS/athena-wsl.git
+cd athena-wsl
+docker buildx build --tag 'athena-wsl:latest' .
+```
+
+## Push to Docker registry
+Push the image to Docker Hub by:
+```
+sudo docker push athenaos/wsl:latest
+```
+If requested, the login must be performed by:
+```
+sudo docker login
+```

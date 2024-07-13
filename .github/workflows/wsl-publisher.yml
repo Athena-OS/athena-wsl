@@ -18,7 +18,7 @@ jobs:
         with:
           driver-opts: image=moby/buildkit:v0.12.5
       - 
-        name: Log into registry
+        name: Log to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USER }}

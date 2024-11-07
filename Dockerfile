@@ -6,7 +6,7 @@ eza pocl \
 noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
 asciinema bash-completion bashtop bat bc blesh-git cmatrix cowsay cron downgrade espeakup figlet-fonts file-roller fortune-mod git goofcord-bin imagemagick jdk-openjdk jq lib32-glibc lolcat lsd myman nano-syntax-highlighting ncdu neofetch nyancat openbsd-netcat openvpn orca p7zip paru pfetch polkit powershell-bin python-pywhat reflector sl superbfetch-git textart tidy tk tmux toilet-fonts tree ufw unzip vim vnstat wget which xclip xmlstarlet zoxide \
 openssl \
-athena-neofetch-config athena-nvim-config athena-powershell-config athena-config athena-tmux-config athena-vim-config athena-win-kex athena-zsh htb-toolkit nist-feed \
+athena-neofetch-config athena-powershell-config athena-config athena-tmux-config athena-vim-config athena-win-kex athena-zsh htb-toolkit nist-feed \
 athena-cyber-hub athena-firefox-config athena-sweetdark-theme athena-theme-tweak athena-vscodium-themes athena-welcome athena-xfce-refined bless chatgpt-desktop-bin cyberchef-electron gtk-engine-murrine hexedit konsole networkmanager networkmanager-openvpn octopi onionshare pavucontrol torbrowser-launcher \
 check fuse imlib2 libfdk-aac libxrandr nasm tigervnc xorg-server xorg-server-devel xorgxrdp xrdp
 

@@ -4,9 +4,9 @@ RUN pacman -Syyu --noconfirm --needed \
 accountsservice bind dialog fakeroot gcc inetutils make man-db man-pages most nano nbd net-tools netctl pv rsync sudo timelineproject-hg vi \
 eza pocl \
 noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
-7zip asciinema bash-completion bashtop bat bc blesh-git cmatrix cowsay cron downgrade espeakup figlet-fonts file-roller fortune-mod git goofcord-bin imagemagick jdk-openjdk jq lib32-glibc lolcat lsd myman nano-syntax-highlighting ncdu neofetch nvchad-git nyancat openbsd-netcat openvpn orca paru pfetch polkit powershell-bin python-pywhat reflector sl superbfetch-git textart tidy tk tmux toilet-fonts tree ufw unzip vim vnstat wget which xclip xmlstarlet zoxide \
+7zip asciinema bash-completion bashtop bat bc blesh-git cmatrix cowsay cron downgrade espeakup fastfetch figlet-fonts file-roller fortune-mod git goofcord-bin imagemagick jdk-openjdk jq lib32-glibc lolcat lsd myman nano-syntax-highlighting ncdu nvchad-git nyancat openbsd-netcat openvpn orca paru pfetch polkit powershell-bin python-pywhat reflector sl superbfetch-git textart tidy tk tmux toilet-fonts tree ufw unzip vim vnstat wget which xclip xmlstarlet zoxide \
 openssl \
-athena-neofetch-config athena-powershell-config athena-config athena-tmux-config athena-vim-config athena-win-kex athena-zsh htb-toolkit nist-feed \
+athena-base athena-config athena-powershell-config athena-tmux-config athena-vim-config athena-win-kex athena-zsh htb-toolkit nist-feed \
 athena-cyber-hub athena-firefox-config athena-sweetdark-theme athena-vscodium-themes athena-welcome athena-xfce-refined bless cyberchef-electron gtk-engine-murrine hexedit konsole networkmanager networkmanager-openvpn octopi onionshare pavucontrol torbrowser-launcher \
 check fuse imlib2 libfdk-aac libxrandr nasm tigervnc xorg-server xorg-server-devel xorgxrdp xrdp
 
@@ -82,7 +82,7 @@ RUN xrdp-keygen xrdp /etc/xrdp/rsakeys.ini
 RUN sed -i 's/\/usr\/bin\/bash/\/usr\/bin\/zsh/g' /usr/share/applications/*
 RUN sed -i 's/alacritty/konsole/g' /usr/share/applications/shell.desktop
 RUN sed -i 's/Bash/Zsh/g' /usr/share/applications/*
-RUN sed -i "s/  neofetch/#  neofetch/g" /etc/skel/.zshrc
+RUN sed -i "s/  fastfetch/#  fastfetch/g" /etc/skel/.zshrc
 RUN sed -i "s/TERMINAL_EXEC=\"alacritty -e\"/TERMINAL_EXEC=\"konsole -e\"/g" /usr/bin/shell-rocket
 
 # Fix bug https://github.com/microsoft/wslg/issues/1132

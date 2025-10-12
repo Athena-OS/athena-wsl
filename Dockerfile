@@ -86,7 +86,7 @@ RUN sed -i "s/  fastfetch/#  fastfetch/g" /etc/skel/.zshrc
 RUN sed -i "s/TERMINAL_EXEC=\"alacritty -e\"/TERMINAL_EXEC=\"konsole -e\"/g" /usr/bin/shell-rocket
 
 # Fix bug https://github.com/microsoft/wslg/issues/1132
-RUN sed -i "s/you.../you.............../g" /usr/share/applications/athena-fern-wifi-cracker.desktop /usr/share/applications/athena-hb-honeypot.desktop /usr/share/applications/athena-spike-generic-chunked.desktop /usr/share/applications/athena-mimikatz.desktop /usr/share/applications/athena-osrframework.desktop
+RUN sed -i "s/you.../you.............../g" /usr/share/applications/athena-fern-wifi-cracker.desktop /usr/share/applications/athena-hb-honeypot.desktop /usr/share/applications/athena-spike-generic-chunked.desktop /usr/share/applications/athena-mimikatz.desktop
 
 # Expose SSH and RDP ports.
 EXPOSE 22

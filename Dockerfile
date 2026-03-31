@@ -2,7 +2,7 @@ FROM athenaos/base:latest
 
 RUN pacman -Syyu --noconfirm --needed \
 accountsservice bind dialog fakeroot gcc inetutils make man-db man-pages most nano nbd net-tools netctl pv rsync sudo vi \
-eza pocl \
+pocl \
 noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono ttf-jetbrains-mono-nerd \
 7zip asciinema bash-completion bashtop bat bc blesh-git cmatrix cowsay cron downgrade espeakup fastfetch figlet-fonts file-roller fortune-mod git imagemagick jdk-openjdk jq lib32-glibc lolcat lsd myman nano-syntax-highlighting ncdu neovim nyancat openbsd-netcat openvpn orca paru pfetch polkit powershell-bin python-pywhat reflector sl textart tidy tk tmux toilet-fonts tree ufw unzip vim vnstat wget which xclip xmlstarlet zoxide \
 openssl \
